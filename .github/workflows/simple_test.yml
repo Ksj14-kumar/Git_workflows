@@ -1,0 +1,19 @@
+name: Simple Workflows
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
+
+jobs:
+    build:
+        runs-on: ubuntu-lates
+        steps:
+
+            - name: Checkout version
+              uses: action/checkout@v3
+
+            - name: Run a one-line script
+              run: echo Hello, world

@@ -17,6 +17,7 @@ pipeline {
             steps {
                 // Install dependencies
                 echo 'install dependancies'
+                sh 'npm ci'
             }
         }
 
@@ -31,6 +32,7 @@ pipeline {
             steps {
                 // Run unit tests
                 echo 'run test command'
+                sh 'npm run test'
             }
         }
 

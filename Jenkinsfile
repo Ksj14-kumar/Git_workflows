@@ -5,6 +5,10 @@ pipeline {
     //     NODE_ENV = 'production'
     // }
 
+
+    tools {
+        nodejs 'Node-23.4' // as per in jenkins configure tools envirnemnts
+    }
     stages {
         stage('Checkout Code') {
             steps {

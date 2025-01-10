@@ -18,11 +18,11 @@ pipeline {
                 echo  "the token id is: ${env.token_id}"
             }
         }
-        stage("clean cache"){
-            steps{
-                sh "npm run cache"
-            }
-        }
+        // stage("clean cache"){
+        //     steps{
+        //         sh "npm run cache"
+        //     }
+        // }
 
         stage('Install Dependencies') {
             steps {

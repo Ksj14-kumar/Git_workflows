@@ -38,7 +38,7 @@ pipeline {
             steps {
                 // Run unit tests
                 echo 'run test command'
-                sh 'npm run test'
+                sh './node_modules/.bin/jest'
             }
         }
 

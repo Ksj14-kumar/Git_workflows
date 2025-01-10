@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        NODE_ENV = 'production'
+        NODE_ENV = 'developement'
         token_id = 'this is token id'
     }
 
@@ -16,6 +16,11 @@ pipeline {
                 // Pull code from the repository
                 echo 'checkout code'
                 echo  "the token id is: ${env.token_id}"
+            }
+        }
+        stage("clean cache"){
+            step{
+                sh "npm run cache"
             }
         }
 

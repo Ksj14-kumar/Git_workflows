@@ -1,79 +1,56 @@
-pipeline {
-    agent any
+pipeline{
+
+    agent any // agent is provide the envirnment for to run the pipeline
 
     environment {
-        NODE_ENV = 'developement'
-        token_id = 'this is token id'
-        credentials_id = credentials("server-credentials")
+        NODE_ENV = "development"
+        
     }
 
+    stages{
+        stage{
 
-    tools {
-        nodejs 'Node-23.4' // as per in jenkins configure tools envirnemnts
-    }
-    stages {
-        stage('Checkout Code') {
-            steps {
-                // Pull code from the repository
-                echo 'checkout code'
-                echo  "the token id is: ${env.token_id}"
+            steps{
+                echo "checkout the code repo"
             }
         }
-        // stage("clean cache"){
-        //     steps{
-        //         sh "npm run cache"
-        //     }
-        // }
-
-        stage('Install Dependencies') {
-            steps {
-                // Install dependencies
-                echo 'install dependancies'
-                sh 'npm ci'
+        stage{
+            steps{
+                echo "install dependencies"
             }
         }
 
-        stage('Run Linter') {
-            steps {
-                // Run linting to ensure code quality
-                echo 'Run linter command'
+        stage{
+            steps{
+
+                echo "run tests cases"
             }
         }
 
-        stage('Run Tests') {
-            steps {
-                // Run unit tests
-                echo 'run test command'
-                sh './node_modules/.bin/jest'
+        stage {
+
+            steps{
+                echo "run build command"
             }
         }
 
-        stage('Build Application') {
-            steps {
-                // Build the application (optional, depending on your app)
-                echo 'build application'
-            }
-        }
-
-        stage('Deploy Application') {
-            steps {
-                // Deploy to the target environment
-                echo 'Deploy application'
-                echo "Node env: ${env.NODE_ENV}"
-                echo "server credentials are: ${env.credentials_id}"
+        stage{
+            steps{
+                echo "finally deploy...🚀"
             }
         }
     }
 
-    post {
-        always {
-            echo 'Pipeline execution complete.'
+    post{
+        always{
+            echo "always run this"
         }
-        success {
-            echo 'Application built and deployed successfully!'
+        success{
+            echo "successfully deploy"
         }
-        failure {
-            echo 'Pipeline failed. Please check the logs.'
+
+        failure{
+            echo "successfull failed"
         }
     }
 }

@@ -4,6 +4,7 @@ pipeline {
     environment {
         NODE_ENV = 'developement'
         token_id = 'this is token id'
+        credentials_id = credentials("server-credentials")
     }
 
 
@@ -58,7 +59,8 @@ pipeline {
             steps {
                 // Deploy to the target environment
                 echo 'Deploy application'
-                echo 'Node env: ${env.NODE_ENV}'
+                echo "Node env: ${env.NODE_ENV}"
+                echo "server credentials are: ${env.credentials_id}"
             }
         }
     }

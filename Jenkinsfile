@@ -1,9 +1,10 @@
 pipeline {
     agent any
 
-    // environment {
-    //     NODE_ENV = 'production'
-    // }
+    environment {
+        NODE_ENV = 'production'
+        token_id = 'this is token id'
+    }
 
 
     tools {
@@ -14,6 +15,7 @@ pipeline {
             steps {
                 // Pull code from the repository
                 echo 'checkout code'
+                echo  "the token id is: ${env.token_id}"
             }
         }
 
@@ -51,6 +53,8 @@ pipeline {
             steps {
                 // Deploy to the target environment
                 echo 'Deploy application'
+                ech0 'Node env: ${env.NODE_ENV}'
+                sh 'Node env on sh: ${env.NODE_ENV}'
             }
         }
     }

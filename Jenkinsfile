@@ -58,7 +58,7 @@ pipeline {
             steps {
                 // Deploy to the target environment
                 echo 'Deploy application'
-                ech0 'Node env: ${env.NODE_ENV}'
+                echo 'Node env: ${env.NODE_ENV}'
                 sh 'Node env on sh: ${env.NODE_ENV}'
             }
         }

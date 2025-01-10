@@ -4,37 +4,37 @@ pipeline{
 
     environment {
         NODE_ENV = "development"
-        
+
     }
 
     stages{
-        stage{
+        stage("checkout code"){
 
             steps{
                 echo "checkout the code repo"
             }
         }
-        stage{
+        stage("install dependancies"){
             steps{
                 echo "install dependencies"
             }
         }
 
-        stage{
+        stage("run tests"){
             steps{
 
                 echo "run tests cases"
             }
         }
 
-        stage {
+        stage("run build command"){
 
             steps{
                 echo "run build command"
             }
         }
 
-        stage{
+        stage("deploy code"){
             steps{
                 echo "finally deploy...🚀"
             }

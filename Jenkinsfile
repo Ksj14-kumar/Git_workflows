@@ -59,7 +59,6 @@ pipeline {
                 // Deploy to the target environment
                 echo 'Deploy application'
                 echo 'Node env: ${env.NODE_ENV}'
-                sh 'Node env on sh: ${env.NODE_ENV}'
             }
         }
     }

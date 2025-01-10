@@ -19,7 +19,7 @@ pipeline {
             }
         }
         stage("clean cache"){
-            step{
+            steps{
                 sh "npm run cache"
             }
         }

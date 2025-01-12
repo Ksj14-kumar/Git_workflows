@@ -1,19 +1,18 @@
-console.log("Hii, Mom");
-console.log("added jenkins file");
-
 const express = require("express");
+
+const port =  process.env.PORT || 5001;
 
 const app = express();
 
 app.get("/", async (req, res) => {
   try {
     res.send("Hii, server!!");
-  } catch (errr) {
+  } catch (err) {
     console.log("errpr on", err);
   }
 });
 
-app.listen(5000, (err) => {
+app.listen(port, (err) => {
   if (err) throw new Error(err);
-  console.log(`server is running on port: ${5000}`);
+  console.log(`server is running on port: ${port}`);
 });

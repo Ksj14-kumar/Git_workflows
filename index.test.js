@@ -7,6 +7,6 @@ describe("Simple test case", ()=>{
         expect(true).toBeTruthy();
     });
     it("should be return false it is false", async()=>{
-        expect(false).toBeFalsy()
-    })
+        expect(false).toBeFalsy();
+    });
 });
